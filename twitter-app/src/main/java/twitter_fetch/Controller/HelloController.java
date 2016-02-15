@@ -1,4 +1,4 @@
-package hello;
+package twitter_fetch.Controller;
 
 import javax.inject.Inject;
 
