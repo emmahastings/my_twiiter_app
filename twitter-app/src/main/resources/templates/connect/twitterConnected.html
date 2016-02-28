@@ -5,7 +5,6 @@
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
-
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"/>
 
@@ -13,11 +12,20 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h3>Connected to Twitter</h3>
 
-<p>
-    You are now connected to your Twitter account.
-    Click <a href="/">here</a> to see your Twitter friends.
-</p>
+
+<div class="container">
+    <div class="row">
+        <!-- Main component for a primary marketing message or call to action -->
+        <div class="jumbotron">
+            <form action="/connect/twitter" method="POST">
+                <div class="formInfo">
+                    <p>You are now connected to your Twitter account. Click <a href="/">here</a> to see jobs in Dublin
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
 </html>
