@@ -16,12 +16,10 @@
 
 <div class="container">
     <div class="row">
-        <!-- Main component for a primary marketing message or call to action -->
         <div class="jumbotron">
-            <form action="/connect/twitter" method="POST">
+            <form th:action="@{/connect/twitter}" method="POST">
                 <div class="formInfo">
-                    <p>You are now connected to your Twitter account. Click <a href="/">here</a> to see jobs in Dublin
-                    </p>
+                    <p>You are now connected to your Twitter account. Click <a href="/">here</a> to see your Twitter dashboard</p>
                 </div>
             </form>
         </div>
