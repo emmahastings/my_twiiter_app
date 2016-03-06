@@ -2,22 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <script src="https://cdn.jsdelivr.net/jquery/2.1.4/jquery.min.js"
-            th:src="@{https://cdn.jsdelivr.net/jquery/2.1.4/jquery.min.js}"></script>
 
-    <script src="https://cdn.jsdelivr.net/bootstrap/3.3.6/js/bootstrap.min.js"
-            th:src="@{https://cdn.jsdelivr.net/bootstrap/3.3.6/js/bootstrap.min.js}"></script>
+    <link href="https://cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap.css"
+          th:href="@{/webjars/bootstrap/3.3.6/css/bootstrap.css}"
+          rel="stylesheet"/>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.js"
             th:src="@{https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.js}"></script>
-
-    <link href="https://cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap.min.css"
-          th:href="@{https://cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap.min.css}"
-          rel="stylesheet"/>
-
-    <link href="https://cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap-theme.min.css"
-          th:href="@{https://cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap-theme.min.css}"
-          rel="stylesheet"/>
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.css"
           th:href="@{https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.css}"
@@ -26,42 +17,83 @@
 </head>
 <body>
 
-<div class="container-fluid">
-    <div class="row">
+<div class="container">
+    <div class="col-md-12">
+        <h3>Welcome to your Twitter Dashboard</h3>
+    </div>
+</div>
 
-        <div class="col-md-10">
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <table id="userTable" class="table table-hover table-bordered"
+                   data-toggle="table" data-show-columns="true" data-show-toggle="true" data-search="true">
+                <tr>
+                    <th>User Name:</th>
+                    <td>Emma</td>
+                </tr>
+                <tr>
+                    <th>Followers:</th>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <th>Following:</th>
+                    <td>555</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-3 col-md-offset-1">
             <form th:action="@{/home}" method="POST" th:object="${searchForm}">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for..." th:field="*{query}"/>
+                    <input type="text" class="form-control" placeholder="Search for tweets containing..." th:field="*{query}"/>
                         <span class="input-group-btn">
                             <button class="btn btn-default" type="button">Go!</button>
                         </span>
                 </div>
             </form>
         </div>
+    </div>
+</div>
 
+<div class="container">
+    <div class="row">
         <div class="col-md-10" th:unless="${#lists.isEmpty(tweets)}">
-            <table id="tweetTable" class="table table-hover table-bordered"
-                   data-toggle="table" data-show-columns="true" data-show-toggle="true" data-search="true">
-                <thead>
-                <tr>
-                    <th>Twiiter User</th>
-                    <th>Tweet</th>
-                    <th>Location</th>
-                    <th>URL</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="tweet:${tweets}">
-                    <td th:text="${tweet.userName}"></td>
-                    <td th:text="${tweet.tweet}"></td>
-                    <td th:text="${tweet.userLocation}"></td>
-                    <td th:text="@{tweet.userUrl}"></td>
-                </tr>
-                </tbody>
-            </table>
+            <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading">Your search results are....</div>
+                <div class="panel-body">
+                    <p>Search term: <span th:text="*{query}"></span></p>
+                </div>
+                <table id="tweetTable" class="table table-hover table-bordered"
+                       data-toggle="table" data-show-columns="true" data-show-toggle="true" data-search="true">
+                    <thead>
+                    <tr>
+                        <th>Twiiter User</th>
+                        <th>Tweet</th>
+                        <th>Location</th>
+                        <th>URL</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="tweet:${tweets}">
+                        <td th:text="${tweet.userName}"></td>
+                        <td th:text="${tweet.tweet}"></td>
+                        <td th:text="${tweet.userLocation}"></td>
+                        <td th:text="@{tweet.userUrl}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"
+        th:src="@{/webjars/jquery/2.2.1/jquery.min.js}"></script>
+
+<script src="https://cdn.jsdelivr.net/bootstrap/3.3.6/js/bootstrap.js"
+        th:src="@{/webjars/bootstrap/3.3.6/js/bootstrap.js}"></script>
+
 </body>
 </html>
