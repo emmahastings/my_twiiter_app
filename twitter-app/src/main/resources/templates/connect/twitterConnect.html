@@ -2,23 +2,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"
+            th:src="@{/webjars/jquery/2.2.1/jquery.min.js}"></script>
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"/>
+    <script src="https://cdn.jsdelivr.net/bootstrap/3.3.6/js/bootstrap.js"
+            th:src="@{/webjars/bootstrap/3.3.6/js/bootstrap.js}"></script>
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap.css"
+          th:href="@{/webjars/bootstrap/3.3.6/css/bootstrap.css}"
+          rel="stylesheet"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
 </head>
-
 <body>
 <div class="container">
     <div class="row">
         <div class="jumbotron">
             <form th:action="@{/connect/twitter}" method="POST">
+                <i class="fa fa-twitter fa-3x"></i>
                 <div class="formInfo">
-                    <p>You aren't connected to Twitter yet. Click the button to connect this application with your Twitter account.</p>
+                    <p>You aren't connected to Twitter yet. Click the button to connect this application with your
+                        Twitter account.</p>
                 </div>
                 <p>
                     <button class="btn btn-lg btn-primary" type="submit">Connect to Twitter</button>
