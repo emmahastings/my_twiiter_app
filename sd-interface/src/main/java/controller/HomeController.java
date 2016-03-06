@@ -1,5 +1,7 @@
 package controller;
 
+import model.SearchForm;
+import model.TweetDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.twitter.api.SearchParameters;
 import org.springframework.social.twitter.api.SearchResults;
@@ -10,14 +12,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import twitter_fetch.Model.SearchForm;
-import twitter_fetch.Model.TweetDetails;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by emmakhastings on 02/03/2016.
+ *
  * @author emmakhastings
  */
 @Controller
@@ -31,13 +32,13 @@ public class HomeController {
         this.twitter = twitter;
     }
 
-    @RequestMapping(method= RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public String getHome(Model model) {
         model.addAttribute("searchForm", new SearchForm());
         return "home";
     }
 
-    @RequestMapping(method= RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public String greetingSubmit(@ModelAttribute SearchForm searchForm, Model model) {
         SearchParameters params = new SearchParameters(searchForm.getQuery());
         params.lang("en");
