@@ -1,4 +1,5 @@
-package controller;
+package dashboard.controller;
+
 
 import model.SearchForm;
 import model.TweetDetails;

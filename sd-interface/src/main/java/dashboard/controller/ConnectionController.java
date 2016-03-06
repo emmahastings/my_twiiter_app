@@ -1,4 +1,4 @@
-package controller;
+package dashboard.controller;
 
 import javax.inject.Inject;
 import javax.naming.directory.SearchResult;
