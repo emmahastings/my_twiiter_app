@@ -1,4 +1,4 @@
-package twitter_fetch.Controller;
+package controller;
 
 import javax.inject.Inject;
 import javax.naming.directory.SearchResult;
