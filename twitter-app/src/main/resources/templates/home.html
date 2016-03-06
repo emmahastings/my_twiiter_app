@@ -29,22 +29,12 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-6 col-sm-10 col-md-offset-0">
-            <table id="userTable" class="table table-hover table-bordered">
-                <tr>
-                    <th>User Name:</th>
-                    <td>Emma</td>
-                </tr>
-                <tr>
-                    <th>Followers:</th>
-                    <td>50</td>
-                </tr>
-                <tr>
-                    <th>Following:</th>
-                    <td>555</td>
-                </tr>
-            </table>
-        </div>
+ <!--       <div class="col-md-6 col-sm-10 col-md-offset-0">
+            <div class="list-group">
+                <a class="list-group-item" href="#"><i class="fa fa-user fa-fw"></i>&nbsp; User Details</a>
+                <a class="list-group-item" href="#"><i class="fa fa-users fa-fw"></i>&nbsp; Followers</a>
+            </div>
+        </div>-->
         <div class="col-md-3 col-sm-3 col-md-offset-0">
             <form th:action="@{/home}" method="POST" th:object="${searchForm}">
                 <div class="input-group">
