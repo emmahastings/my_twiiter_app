@@ -24,12 +24,12 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/home")
-public class HomeController {
+public class TwitterController {
 
     private Twitter twitter;
 
     @Autowired
-    public HomeController(Twitter twitter) {
+    public TwitterController(Twitter twitter) {
         this.twitter = twitter;
     }
 
