@@ -1,3 +1,4 @@
+/*
 package dashboard.controller;
 
 import javax.inject.Inject;
@@ -36,4 +37,4 @@ public class ConnectionController {
             return "redirect:/home";
         }
     }
-}
+}*/

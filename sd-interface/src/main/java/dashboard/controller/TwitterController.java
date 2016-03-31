@@ -1,9 +1,11 @@
+
 package dashboard.controller;
 
 
 import model.SearchForm;
 import model.TweetDetails;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.twitter.api.SearchParameters;
 import org.springframework.social.twitter.api.SearchResults;
 import org.springframework.social.twitter.api.Tweet;
@@ -17,23 +19,37 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * Created by emmakhastings on 02/03/2016.
  *
  * @author emmakhastings
  */
+
 @Controller
-@RequestMapping("/home")
+@RequestMapping("/twitter_connect")
 public class TwitterController {
 
     private Twitter twitter;
 
+    private ConnectionRepository connectionRepository;
+
     @Autowired
-    public TwitterController(Twitter twitter) {
+    public TwitterController(Twitter twitter, ConnectionRepository connectionRepository) {
         this.twitter = twitter;
+        this.connectionRepository = connectionRepository;
     }
 
     @RequestMapping(method = RequestMethod.GET)
+    public String connectTwitter(Model model) {
+        if (connectionRepository.findPrimaryConnection(Twitter.class) == null) {
+            return "redirect:/connect/twitter";
+        } else {
+            return "redirect:/";
+        }
+    }
+
+/*    @RequestMapping(method = RequestMethod.GET)
     public String getHome(Model model) {
         model.addAttribute("searchForm", new SearchForm());
         return "home";
@@ -59,7 +75,8 @@ public class TwitterController {
         model.addAttribute("searchForm", searchForm);
         model.addAttribute("tweets", tweets);
         return "home";
-    }
+    }*/
 
 
 }
+

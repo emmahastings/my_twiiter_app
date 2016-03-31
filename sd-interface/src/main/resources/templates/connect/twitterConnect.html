@@ -15,19 +15,17 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
 </head>
 <body>
+
+
 <div class="container">
     <div class="row">
-        <div class="jumbotron">
-            <form th:action="@{/connect/twitter}" method="POST">
-                <i class="fa fa-twitter fa-3x"></i>
-                <div class="formInfo">
-                    <p>You aren't connected to Twitter yet. Click the button to connect this application with your
-                        Twitter account.</p>
-                </div>
-                <p>
-                    <button class="btn btn-lg btn-primary" type="submit">Connect to Twitter</button>
-                </p>
-            </form>
+        <div class="col-md-8">
+            <div class="jumbotron">
+                <p class="lead">You are not connected to Twitter yet. Click to allow this application to connect to your
+                    account</p>
+                <p><a class="btn btn-lg btn-default" href="/connect/twitter" th:href="@{/connect/twitter}"><i
+                        class="fa fa-twitter fa-3x"></i></a></p>
+            </div>
         </div>
     </div>
 </div>
