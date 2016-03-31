@@ -7,7 +7,7 @@
     <groupId>com.hastings</groupId>
     <artifactId>social-dashboard</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <description>dashboard.Application to access various social media platfomrs. Based on
+    <description>Application to access various social media platfomrs. Based on
         https://spring.io/guides/gs/accessing-twitter/
     </description>
 
