@@ -1,4 +1,4 @@
-package dashboard.controller;
+package dashboard.controller.twitter;
 
 import model.SearchForm;
 import model.TweetDetails;
