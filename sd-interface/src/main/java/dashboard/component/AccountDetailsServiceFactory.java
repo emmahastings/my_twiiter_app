@@ -1,4 +1,7 @@
-package dashboard.service;
+package dashboard.component;
+
+import dashboard.service.AccountDetailsService;
+import dashboard.service.TwitterAccountDetailsService;
 
 /**
  * Created by emmakhastings on 02/04/2016.
