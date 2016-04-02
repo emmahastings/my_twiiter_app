@@ -59,6 +59,6 @@ public class TwitterDashboardController {
 
         model.addAttribute("searchForm", searchForm);
         model.addAttribute("tweets", tweets);
-        return "home";
+        return "twitter_dashboard";
     }
 }
