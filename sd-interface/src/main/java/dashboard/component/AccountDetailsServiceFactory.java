@@ -2,6 +2,7 @@ package dashboard.component;
 
 import dashboard.service.AccountDetailsService;
 import dashboard.service.TwitterAccountDetailsService;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by emmakhastings on 02/04/2016.
@@ -10,6 +11,7 @@ import dashboard.service.TwitterAccountDetailsService;
  *         <p>
  *         Factory to create the relevant AccountDetailsService
  */
+@Component
 public class AccountDetailsServiceFactory {
 
     public AccountDetailsService getService(String application) {
