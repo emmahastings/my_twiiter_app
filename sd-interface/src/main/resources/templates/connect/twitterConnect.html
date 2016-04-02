@@ -16,16 +16,15 @@
 </head>
 <body>
 
-
 <div class="container">
     <div class="row">
-        <div class="col-md-8">
-            <div class="jumbotron">
-                <p class="lead">You are not connected to Twitter yet. Click to allow this application to connect to your
-                    account</p>
-                <p><a class="btn btn-lg btn-default" href="/connect/twitter" th:href="@{/connect/twitter}"><i
-                        class="fa fa-twitter fa-3x"></i></a></p>
-            </div>
+        <div class="col-md-6 col-md-offset-3 col-sm-10">
+            <form th:action="@{/connect/twitter}" method="POST">
+                <div class="list-group">
+                    <button class="btn btn-lg btn-default" type="submit">Allow application to connect to Twitter
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
