@@ -55,8 +55,8 @@
             <div class="panel panel-default">
                 <!-- Default panel contents -->
                 <div class="panel-heading">Your search results are....</div>
-                <div class="panel-body">
-                    <p>Search term: <span th:text="*{query}"></span></p>
+                <div class="panel-body" th:object="${searchForm}">
+                    <p>Search term: <span class="lead" th:text="*{query}"></span></p>
                 </div>
                 <table id="tweetTable" class="table table-hover table-bordered">
                     <thead>
