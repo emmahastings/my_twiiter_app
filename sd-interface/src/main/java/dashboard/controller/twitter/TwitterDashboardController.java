@@ -1,5 +1,6 @@
 package dashboard.controller.twitter;
 
+import dashboard.component.AccountDetailsServiceFactory;
 import dashboard.service.AccountDetailsService;
 import dashboard.service.TwitterAccountDetailsService;
 import model.SearchForm;
@@ -30,12 +31,12 @@ public class TwitterDashboardController {
 
     private Twitter twitter;
 
-    private AccountDetailsService twitterAccountDetailsService;
+    private AccountDetailsServiceFactory accountDetailsServiceFactory;
 
     @Autowired
-    public TwitterDashboardController(Twitter twitter, TwitterAccountDetailsService twitterAccountDetailsService) {
+    public TwitterDashboardController(Twitter twitter, AccountDetailsServiceFactory accountDetailsServiceFactory) {
         this.twitter = twitter;
-        this.twitterAccountDetailsService = twitterAccountDetailsService;
+        this.accountDetailsServiceFactory = accountDetailsServiceFactory;
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -71,7 +72,8 @@ public class TwitterDashboardController {
             method = RequestMethod.GET)
     public String getUserDetails(Model model) {
         AccountSettings accountSettings = twitter.userOperations().getAccountSettings();
-        UserDetails twitterUserDetails = twitterAccountDetailsService.createUserDetails(accountSettings);
+        AccountDetailsService accountDetailsService = accountDetailsServiceFactory.getService("twitter");
+        UserDetails twitterUserDetails = accountDetailsService.createUserDetails(accountSettings);
         model.addAttribute("twitterUserDetails", twitterUserDetails);
         return "user_details";
     }
