@@ -1,12 +1,13 @@
 package dashboard.controller.twitter;
 
+import dashboard.service.AccountDetailsService;
+import dashboard.service.TwitterAccountDetailsService;
 import model.SearchForm;
 import model.TweetDetails;
+import model.UserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.social.twitter.api.SearchParameters;
-import org.springframework.social.twitter.api.SearchResults;
-import org.springframework.social.twitter.api.Tweet;
-import org.springframework.social.twitter.api.Twitter;
+import org.springframework.http.MediaType;
+import org.springframework.social.twitter.api.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,8 +21,8 @@ import java.util.List;
  * Created by emmakhastings on 02/04/2016.
  *
  * @author emmakhastings
- *
- * Controller to handle Twiiter functionality
+ *         <p>
+ *         Controller to handle Twiiter functionality
  */
 @Controller
 @RequestMapping("/twitter_dashboard")
@@ -29,9 +30,12 @@ public class TwitterDashboardController {
 
     private Twitter twitter;
 
+    private AccountDetailsService twitterAccountDetailsService;
+
     @Autowired
-    public TwitterDashboardController(Twitter twitter) {
+    public TwitterDashboardController(Twitter twitter, TwitterAccountDetailsService twitterAccountDetailsService) {
         this.twitter = twitter;
+        this.twitterAccountDetailsService = twitterAccountDetailsService;
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -60,5 +64,15 @@ public class TwitterDashboardController {
         model.addAttribute("searchForm", searchForm);
         model.addAttribute("tweets", tweets);
         return "twitter_dashboard";
+    }
+
+    @RequestMapping(value = "/user_details",
+            produces = MediaType.TEXT_HTML_VALUE,
+            method = RequestMethod.GET)
+    public String getUserDetails(Model model) {
+        AccountSettings accountSettings = twitter.userOperations().getAccountSettings();
+        UserDetails twitterUserDetails = twitterAccountDetailsService.createUserDetails(accountSettings);
+        model.addAttribute("twitterUserDetails", twitterUserDetails);
+        return "user_details";
     }
 }
