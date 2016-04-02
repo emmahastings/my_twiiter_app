@@ -2,7 +2,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"
             th:src="@{/webjars/jquery/2.2.1/jquery.min.js}"></script>
 
@@ -31,7 +30,7 @@
     <div class="row">
       <div class="col-md-6 col-sm-10 col-md-offset-0">
             <div class="list-group">
-                <a class="list-group-item" href="#"><i class="fa fa-user fa-fw"></i>&nbsp; User Details</a>
+                <a class="list-group-item" href="/twitter_dashboard/user_details" th:ref="@{/twitter_dashboard/user_details}"><i class="fa fa-user fa-fw"></i>&nbsp; User Details</a>
                 <a class="list-group-item" href="#"><i class="fa fa-users fa-fw"></i>&nbsp; Followers</a>
             </div>
         </div>
@@ -72,7 +71,12 @@
                         <td th:text="${tweet.userName}"></td>
                         <td th:text="${tweet.tweet}"></td>
                         <td th:text="${tweet.userLocation}"></td>
-                        <td th:text="@{tweet.userUrl}"></td>
+                        <td>
+                            <div th:unless="${#strings.isEmpty(tweet.userUrl)}">
+                                <p th:text="${tweet.userUrl}"></p>
+                                <span><a th:href="${tweet.userUrl}"><i class="fa fa-external-link"></i></a></span>
+                            </div>
+                        </td>
                     </tr>
                     </tbody>
                 </table>
