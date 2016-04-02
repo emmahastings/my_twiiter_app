@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"
+            th:src="@{/webjars/jquery/2.2.1/jquery.min.js}"></script>
+
+    <script src="https://cdn.jsdelivr.net/bootstrap/3.3.6/js/bootstrap.js"
+            th:src="@{/webjars/bootstrap/3.3.6/js/bootstrap.js}"></script>
+
+    <link href="https://cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap.css"
+          th:href="@{/webjars/bootstrap/3.3.6/css/bootstrap.css}"
+          rel="stylesheet"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+
+    <title>Twitter Dashboard</title>
+</head>
+<body>
+
+<div class="container">
+    <div class="row lead">
+        <div class="col-md-12">
+            <h3>Welcome to your Twitter Dashboard</h3>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-sm-10">
+            <ul class="list-group" th:object="${twitterUserDetails}">
+                <li class="list-group-item" th:text="*{name}"></li>
+                <li class="list-group-item" th:text="*{language}"></li>
+                <li class="list-group-item" th:text="*{trendLocationName}"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>
