@@ -48,12 +48,12 @@ public class TwitterDashboardController {
         SearchResults results = twitter.searchOperations().search(params);
         List<TweetDetails> tweets = new ArrayList<>();
 
-        for (Tweet result : results.getTweets()) {
+        for (Tweet tweet : results.getTweets()) {
             TweetDetails tweetDetails = new TweetDetails();
-            tweetDetails.setTweet(result.getText());
-            tweetDetails.setUserName(result.getFromUser());
-            tweetDetails.setUserUrl(result.getUser().getUrl());
-            tweetDetails.setUserLocation(result.getUser().getLocation());
+            tweetDetails.setTweet(tweet.getText());
+            tweetDetails.setUserName(tweet.getFromUser());
+            tweetDetails.setUserUrl(tweet.getUser().getUrl());
+            tweetDetails.setUserLocation(tweet.getUser().getLocation());
             tweets.add(tweetDetails);
         }
 
