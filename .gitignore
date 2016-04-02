@@ -43,7 +43,7 @@ Thumbs.db
 
 # never commit application properties files#
 ############################################
-/sd-interface/src/main/resources/applicaion.properties
+application.properties
 
 # exclude .idea dir#
 ####################
