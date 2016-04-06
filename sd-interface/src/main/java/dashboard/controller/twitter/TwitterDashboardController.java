@@ -2,7 +2,6 @@ package dashboard.controller.twitter;
 
 import dashboard.component.AccountDetailsServiceFactory;
 import dashboard.service.AccountDetailsService;
-import dashboard.service.TwitterAccountDetailsService;
 import model.SearchForm;
 import model.TweetDetails;
 import model.UserDetails;
@@ -42,7 +41,7 @@ public class TwitterDashboardController {
     @RequestMapping(method = RequestMethod.GET)
     public String getDashboard(Model model) {
         model.addAttribute("searchForm", new SearchForm());
-        return "twitter_dashboard";
+        return "twitter/twitter_dashboard";
     }
 
     @RequestMapping(method = RequestMethod.POST)
@@ -64,7 +63,7 @@ public class TwitterDashboardController {
 
         model.addAttribute("searchForm", searchForm);
         model.addAttribute("tweets", tweets);
-        return "twitter_dashboard";
+        return "twitter/twitter_dashboard";
     }
 
     @RequestMapping(value = "/user_details",
@@ -75,6 +74,6 @@ public class TwitterDashboardController {
         AccountDetailsService accountDetailsService = accountDetailsServiceFactory.getService("twitter");
         UserDetails twitterUserDetails = accountDetailsService.createUserDetails(accountSettings);
         model.addAttribute("twitterUserDetails", twitterUserDetails);
-        return "user_details";
+        return "twitter/user_details";
     }
 }

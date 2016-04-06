@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"
             th:src="@{/webjars/jquery/2.2.1/jquery.min.js}"></script>
@@ -28,9 +28,10 @@
 
 <div class="container">
     <div class="row">
-      <div class="col-md-6 col-sm-10 col-md-offset-0">
+        <div class="col-md-6 col-sm-10 col-md-offset-0">
             <div class="list-group">
-                <a class="list-group-item" href="/twitter_dashboard/user_details" th:ref="@{/twitter_dashboard/user_details}"><i class="fa fa-user fa-fw"></i>&nbsp; User Details</a>
+                <a class="list-group-item" href="/twitter_dashboard/user_details"
+                   th:ref="@{/twitter_dashboard/user_details}"><i class="fa fa-user fa-fw"></i>&nbsp; User Details</a>
                 <a class="list-group-item" href="#"><i class="fa fa-users fa-fw"></i>&nbsp; Followers</a>
             </div>
         </div>
@@ -50,7 +51,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-10 col-sm-10" th:unless="${#lists.isEmpty(tweets)}">
+        <div class="col-md-10 col-sm-10" th:if="${not #lists.isEmpty(tweets)}">
             <div class="panel panel-default">
                 <!-- Default panel contents -->
                 <div class="panel-heading">Your search results are....</div>
@@ -75,6 +76,18 @@
                     </tr>
                     </tbody>
                 </table>
+            </div>
+        </div>
+
+        <!-- No results-->
+        <div class="col-md-10 col-sm-10">
+            <div class="panel panel-default"
+                 th:if="${not #strings.isEmpty(searchForm.query) and #lists.isEmpty(tweets)}">
+                <!-- Default panel contents -->
+                <div class="panel-heading">No search results found!</div>
+                <div class="panel-body" th:object="${searchForm}">
+                    <p>Search term: <span class="lead" th:text="*{query}"></span>Test</p>
+                </div>
             </div>
         </div>
     </div>
