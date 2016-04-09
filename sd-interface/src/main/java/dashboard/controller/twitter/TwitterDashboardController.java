@@ -1,22 +1,16 @@
 package dashboard.controller.twitter;
 
-import dashboard.component.AccountDetailsServiceFactory;
 import dashboard.service.AccountDetailsService;
 import dashboard.service.TwitterSearchService;
 import model.SearchForm;
-import model.TweetDetails;
-import model.UserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
-import org.springframework.social.twitter.api.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by emmakhastings on 02/04/2016.
@@ -29,13 +23,13 @@ import java.util.List;
 @RequestMapping("/twitter_dashboard")
 public class TwitterDashboardController {
 
-    private AccountDetailsServiceFactory accountDetailsServiceFactory;
+    private AccountDetailsService accountDetailsService;
 
     private TwitterSearchService twitterSearchService;
 
     @Autowired
-    public TwitterDashboardController(AccountDetailsServiceFactory accountDetailsServiceFactory, TwitterSearchService twitterSearchService) {
-        this.accountDetailsServiceFactory = accountDetailsServiceFactory;
+    public TwitterDashboardController(@Qualifier("twitterAccountDetailsService") AccountDetailsService accountDetailsService, TwitterSearchService twitterSearchService) {
+        this.accountDetailsService = accountDetailsService;
         this.twitterSearchService = twitterSearchService;
     }
 
@@ -56,7 +50,7 @@ public class TwitterDashboardController {
             produces = MediaType.TEXT_HTML_VALUE,
             method = RequestMethod.GET)
     public String getUserDetails(Model model) {
-        model.addAttribute("twitterUserDetails", accountDetailsServiceFactory.getService("twiiter").getUserDetails());
+        model.addAttribute("twitterUserDetails", accountDetailsService.getUserDetails());
         return "twitter/user_details";
     }
 }
