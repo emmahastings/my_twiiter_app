@@ -2,6 +2,7 @@ package dashboard.controller.twitter;
 
 import dashboard.component.AccountDetailsServiceFactory;
 import dashboard.service.AccountDetailsService;
+import dashboard.service.TwitterSearchService;
 import model.SearchForm;
 import model.TweetDetails;
 import model.UserDetails;
@@ -22,20 +23,20 @@ import java.util.List;
  *
  * @author emmakhastings
  *         <p>
- *         Controller to handle Twiiter functionality
+ *         Controller to handle twitter functionality
  */
 @Controller
 @RequestMapping("/twitter_dashboard")
 public class TwitterDashboardController {
 
-    private Twitter twitter;
-
     private AccountDetailsServiceFactory accountDetailsServiceFactory;
 
+    private TwitterSearchService twitterSearchService;
+
     @Autowired
-    public TwitterDashboardController(Twitter twitter, AccountDetailsServiceFactory accountDetailsServiceFactory) {
-        this.twitter = twitter;
+    public TwitterDashboardController(AccountDetailsServiceFactory accountDetailsServiceFactory, TwitterSearchService twitterSearchService) {
         this.accountDetailsServiceFactory = accountDetailsServiceFactory;
+        this.twitterSearchService = twitterSearchService;
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -46,23 +47,8 @@ public class TwitterDashboardController {
 
     @RequestMapping(method = RequestMethod.POST)
     public String searchTwitter(@ModelAttribute SearchForm searchForm, Model model) {
-        SearchParameters params = new SearchParameters(searchForm.getQuery());
-        params.lang("en");
-
-        SearchResults results = twitter.searchOperations().search(params);
-        List<TweetDetails> tweets = new ArrayList<>();
-
-        for (Tweet tweet : results.getTweets()) {
-            TweetDetails tweetDetails = new TweetDetails();
-            tweetDetails.setTweet(tweet.getText());
-            tweetDetails.setUserName(tweet.getFromUser());
-            tweetDetails.setUserUrl(tweet.getUser().getUrl());
-            tweetDetails.setUserLocation(tweet.getUser().getLocation());
-            tweets.add(tweetDetails);
-        }
-
         model.addAttribute("searchForm", searchForm);
-        model.addAttribute("tweets", tweets);
+        model.addAttribute("tweets", twitterSearchService.search(searchForm.getQuery()));
         return "twitter/twitter_dashboard";
     }
 
@@ -70,10 +56,7 @@ public class TwitterDashboardController {
             produces = MediaType.TEXT_HTML_VALUE,
             method = RequestMethod.GET)
     public String getUserDetails(Model model) {
-        AccountSettings accountSettings = twitter.userOperations().getAccountSettings();
-        AccountDetailsService accountDetailsService = accountDetailsServiceFactory.getService("twitter");
-        UserDetails twitterUserDetails = accountDetailsService.createUserDetails(accountSettings);
-        model.addAttribute("twitterUserDetails", twitterUserDetails);
+        model.addAttribute("twitterUserDetails", accountDetailsServiceFactory.getService("twiiter").getUserDetails());
         return "twitter/user_details";
     }
 }

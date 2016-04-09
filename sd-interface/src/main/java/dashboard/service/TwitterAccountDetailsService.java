@@ -1,7 +1,9 @@
 package dashboard.service;
 
 import model.TwitterUserDetails;
+import model.UserDetails;
 import org.springframework.social.twitter.api.AccountSettings;
+import org.springframework.social.twitter.api.Twitter;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -17,12 +19,19 @@ import java.util.List;
 @Service
 public class TwitterAccountDetailsService implements AccountDetailsService {
 
+    private Twitter twitter;
+
+    public UserDetails getUserDetails() {
+        AccountSettings accountSettings = twitter.userOperations().getAccountSettings();
+        return createUserDetails(accountSettings);
+    }
+
     /**
      * Create user details from authenticating user's account settings
      *
      * @param accountSettings authenticating user's account settings
      */
-    public TwitterUserDetails createUserDetails(AccountSettings accountSettings) {
+    private TwitterUserDetails createUserDetails(AccountSettings accountSettings) {
         TwitterUserDetails twitterUserDetails = new TwitterUserDetails(accountSettings.getScreenName());
         twitterUserDetails.setLanguage(accountSettings.getLanguage());
 

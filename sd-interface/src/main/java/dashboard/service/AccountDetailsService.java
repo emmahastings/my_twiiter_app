@@ -11,5 +11,5 @@ import org.springframework.social.twitter.api.AccountSettings;
  *         Service to create a representation of relevant user details
  */
 public interface AccountDetailsService {
-    UserDetails createUserDetails(AccountSettings accountSettings);
+    UserDetails getUserDetails();
 }
