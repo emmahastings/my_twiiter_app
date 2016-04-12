@@ -14,17 +14,14 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
 
+    <link rel="stylesheet" href="../static/css/color_scheme.css"
+          th:href="@{../../../../css/color_scheme.css}"/>
+
     <title>Twitter Dashboard</title>
 </head>
 <body>
 
-<div class="container">
-    <div class="row lead">
-        <div class="col-md-12">
-            <h3>Welcome to your Twitter Dashboard</h3>
-        </div>
-    </div>
-</div>
+<div th:include="fragments/header :: header"></div>
 
 <div class="container">
     <div class="row">
