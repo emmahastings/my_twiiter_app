@@ -1,6 +1,7 @@
 package dashboard.controller.twitter;
 
 import dashboard.service.AccountDetailsService;
+import dashboard.service.TwitterFollowersService;
 import dashboard.service.TwitterSearchService;
 import model.SearchForm;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,10 +28,15 @@ public class TwitterDashboardController {
 
     private TwitterSearchService twitterSearchService;
 
+    private TwitterFollowersService twitterFollowersService;
+
     @Autowired
-    public TwitterDashboardController(@Qualifier("twitterAccountDetailsService") AccountDetailsService accountDetailsService, TwitterSearchService twitterSearchService) {
+    public TwitterDashboardController(@Qualifier("twitterAccountDetailsService") AccountDetailsService accountDetailsService,
+                                      TwitterSearchService twitterSearchService,
+                                      TwitterFollowersService twitterFollowersService) {
         this.accountDetailsService = accountDetailsService;
         this.twitterSearchService = twitterSearchService;
+        this.twitterFollowersService = twitterFollowersService;
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -52,5 +58,13 @@ public class TwitterDashboardController {
     public String getUserDetails(Model model) {
         model.addAttribute("twitterUserDetails", accountDetailsService.getUserDetails());
         return "twitter/user_details";
+    }
+
+    @RequestMapping(value = "/followers",
+            produces = MediaType.TEXT_HTML_VALUE,
+            method = RequestMethod.GET)
+    public String getFollowers(Model model) {
+        model.addAttribute("twitterFollowers", twitterFollowersService.getFollowers());
+        return "twitter/followers";
     }
 }

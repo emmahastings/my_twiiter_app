@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"
+            th:src="@{/webjars/jquery/2.2.1/jquery.min.js}"></script>
+
+    <script src="https://cdn.jsdelivr.net/bootstrap/3.3.6/js/bootstrap.js"
+            th:src="@{/webjars/bootstrap/3.3.6/js/bootstrap.js}"></script>
+
+    <link href="https://cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap.css"
+          th:href="@{/webjars/bootstrap/3.3.6/css/bootstrap.css}"
+          rel="stylesheet"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+
+    <link rel="stylesheet" href="../static/css/color_scheme.css"
+          th:href="@{../../../../css/color_scheme.css}"/>
+
+    <title>Twitter Dashboard</title>
+</head>
+<body>
+
+<div th:include="fragments/header :: header"></div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-sm-10" th:if="${not #lists.isEmpty(twitterFollowers)}">
+            <table id="tweetTable" class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Screen Name</th>
+                    <th>Location</th>
+                    <th>Description</th>
+                    <th>Profile URL</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="twitterFollower:${twitterFollowers}">
+                    <td th:text="${twitterFollower.name}">Name</td>
+                    <td th:text="${twitterFollower.screenName}">Screen Name</td>
+                    <td th:text="${twitterFollower.location}">Location</td>
+                    <td th:text="${twitterFollower.description}">Description</td>
+                    <td><a th:if="${not #strings.isEmpty(twitterFollower.profileUrl)}" th:href="${twitterFollower.profileUrl}" target="_blank"><i
+                            class="fa fa-external-link" aria-hidden="true"></i></a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
