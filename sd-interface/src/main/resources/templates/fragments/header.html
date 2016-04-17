@@ -21,10 +21,15 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="/twitter_dashboard" th:href="@{/twitter_dashboard}"><i class="fa fa-search" aria-hidden="true"></i>&nbsp; Search</a></li>
+                <li><a href="/twitter_dashboard" th:href="@{/twitter_dashboard}"><i class="fa fa-search"></i>&nbsp;
+                    Search</a>
+                </li>
                 <li><a href="/twitter_dashboard/user_details"
-                       th:href="@{/twitter_dashboard/user_details}"><i class="fa fa-user fa-fw"></i>&nbsp; User Details</a></li>
-                <li><a href="#"><i class="fa fa-users fa-fw"></i>&nbsp; Followers</a></li>
+                       th:href="@{/twitter_dashboard/user_details}"><i class="fa fa-user fa-fw"></i>&nbsp; User Details</a>
+                </li>
+                <li><a href="/twitter_dashboard/followers"
+                       th:href="@{/twitter_dashboard/followers}"><i class="fa fa-users fa-fw"></i>&nbsp; Followers</a>
+                </li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
