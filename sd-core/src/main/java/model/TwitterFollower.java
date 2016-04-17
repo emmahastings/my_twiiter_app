@@ -17,7 +17,7 @@ public class TwitterFollower {
 
     private String description;
 
-    private String profileURL;
+    private String profileUrl;
 
     public String getName() {
         return name;
@@ -51,11 +51,11 @@ public class TwitterFollower {
         this.description = description;
     }
 
-    public String getProfileURL() {
-        return profileURL;
+    public String getProfileUrl() {
+        return profileUrl;
     }
 
-    public void setProfileURL(String profileURL) {
-        this.profileURL = profileURL;
+    public void setProfileUrl(String profileUrl) {
+        this.profileUrl = profileUrl;
     }
 }
