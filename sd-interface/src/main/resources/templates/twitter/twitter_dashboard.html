@@ -25,13 +25,13 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-3 col-sm-3 col-md-offset-0">
+        <div class="col-md-6 col-sm-3 col-md-offset-0">
             <form th:action="@{/twitter_dashboard}" method="POST" th:object="${searchForm}">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Search for tweets containing..."
                            th:field="*{query}"/>
                         <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">Go!</button>
+                            <button class="btn btn-default" type="button">Search</button>
                         </span>
                 </div>
             </form>
@@ -73,9 +73,8 @@
             <div class="panel panel-default"
                  th:if="${not #strings.isEmpty(searchForm.query) and #lists.isEmpty(tweets)}">
                 <!-- Default panel contents -->
-                <div class="panel-heading">No search results found!</div>
                 <div class="panel-body" th:object="${searchForm}">
-                    <p>Search term: <span class="lead" th:text="*{query}"></span>Test</p>
+                    <p>No result for search term: <span class="lead" th:text="*{query}"></span></p>
                 </div>
             </div>
         </div>
