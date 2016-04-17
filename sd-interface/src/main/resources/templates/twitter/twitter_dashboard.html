@@ -53,7 +53,7 @@
                         <th>Twiiter User</th>
                         <th>Tweet</th>
                         <th>Location</th>
-                        <th></th>
+                        <th>Tweet URL</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -61,7 +61,7 @@
                         <td th:text="${tweet.userName}">User Name</td>
                         <td th:text="${tweet.tweet}">Tweet</td>
                         <td th:text="${tweet.userLocation}">Location</td>
-                        <td><a th:if="${not #strings.isEmpty(tweet.userUrl)}" th:href="${tweet.userUrl}">view</a></td>
+                        <td><a th:if="${not #strings.isEmpty(tweet.userUrl)}" th:href="${tweet.userUrl}" target="_blank"><i class="fa fa-external-link" aria-hidden="true"></i></a></td>
                     </tr>
                     </tbody>
                 </table>
