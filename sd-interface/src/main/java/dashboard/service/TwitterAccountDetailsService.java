@@ -49,7 +49,7 @@ public class TwitterAccountDetailsService implements AccountDetailsService {
             locationNames.add(accountSettings.getTimeZone().getName());
         }
 
-        twitterUserDetails.setTrendLocationName(String.join(" and ", locationNames));
+        twitterUserDetails.setLocation(String.join(" and ", locationNames));
         return twitterUserDetails;
     }
 }
