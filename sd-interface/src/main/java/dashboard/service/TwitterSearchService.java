@@ -1,6 +1,8 @@
 package dashboard.service;
 
 import model.TweetDetails;
+import model.TwitterUserDetails;
+import model.UserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.twitter.api.SearchParameters;
 import org.springframework.social.twitter.api.SearchResults;
@@ -38,9 +40,15 @@ public class TwitterSearchService {
         for (Tweet tweet : results.getTweets()) {
             TweetDetails tweetDetails = new TweetDetails();
             tweetDetails.setTweet(tweet.getText());
-            tweetDetails.setUserName(tweet.getFromUser());
-            tweetDetails.setUserUrl(tweet.getUser().getUrl());
-            tweetDetails.setUserLocation(tweet.getUser().getLocation());
+
+            // Create user details
+            TwitterUserDetails twitterUserDetails = new TwitterUserDetails(tweet.getFromUser());
+            twitterUserDetails.setId(tweet.getFromUserId());
+            twitterUserDetails.setLanguage(tweet.getUser().getLanguage());
+            twitterUserDetails.setUrl(tweet.getUser().getUrl());
+            twitterUserDetails.setLocation(tweet.getUser().getLocation());
+            tweetDetails.setUser(twitterUserDetails);
+
             tweets.add(tweetDetails);
         }
         return tweets;
