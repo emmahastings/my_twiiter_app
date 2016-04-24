@@ -1,7 +1,6 @@
 package dashboard.service;
 
 import model.UserDetails;
-import org.springframework.social.twitter.api.AccountSettings;
 
 /**
  * Created by emmakhastings on 02/04/2016.
@@ -12,4 +11,6 @@ import org.springframework.social.twitter.api.AccountSettings;
  */
 public interface AccountDetailsService {
     UserDetails getUserDetails();
+
+    UserDetails getUserDetailsById(Long id);
 }

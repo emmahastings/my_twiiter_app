@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -59,6 +60,15 @@ public class TwitterDashboardController {
         model.addAttribute("twitterUserDetails", accountDetailsService.getUserDetails());
         return "twitter/user_details";
     }
+
+    @RequestMapping(value = "/user_details/{userId}",
+            produces = MediaType.TEXT_HTML_VALUE,
+            method = RequestMethod.GET)
+    public String getUserDetailsFromId(Model model, @PathVariable Long userId) {
+        model.addAttribute("twitterUserDetails", accountDetailsService.getUserDetailsById(userId));
+        return "twitter/user_details";
+    }
+
 
     @RequestMapping(value = "/followers",
             produces = MediaType.TEXT_HTML_VALUE,

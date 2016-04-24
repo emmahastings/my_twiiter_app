@@ -10,7 +10,9 @@ package model;
 public class TwitterUserDetails extends UserDetails {
     private String language;
 
-    private String trendLocationName;
+    private String location;
+
+    private String url;
 
     public TwitterUserDetails(String name) {
         super(name);
@@ -24,11 +26,19 @@ public class TwitterUserDetails extends UserDetails {
         this.language = language;
     }
 
-    public String getTrendLocationName() {
-        return trendLocationName;
+    public String getLocation() {
+        return location;
     }
 
-    public void setTrendLocationName(String trendLocationName) {
-        this.trendLocationName = trendLocationName;
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

@@ -37,7 +37,14 @@
                 </div>
                 <div class="list-group-item">
                     <h4 class="list-group-item-heading">Location</h4>
-                    <p class="list-group-item-text" th:text="*{trendLocationName}">Location</p>
+                    <p class="list-group-item-text" th:text="*{location}">Location</p>
+                </div>
+
+                <div class="list-group-item" th:if="*{not #strings.isEmpty(url)}">
+                    <h4 class="list-group-item-heading">URL</h4>
+                    <span><p class="list-group-item-text" th:text="*{url}">URL</p>
+                    <a th:href="*{url}" target="_blank"><i class="fa fa-external-link"
+                                                           aria-hidden="true"></i></a></span>
                 </div>
             </div>
         </div>

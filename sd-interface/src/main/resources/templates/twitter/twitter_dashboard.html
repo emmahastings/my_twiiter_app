@@ -50,7 +50,8 @@
                 <table id="tweetTable" class="table table-bordered">
                     <thead>
                     <tr>
-                        <th>Twiiter User</th>
+                        <th>User Name</th>
+                        <th>User Details</th>
                         <th>Tweet</th>
                         <th>Location</th>
                         <th>Tweet URL</th>
@@ -58,10 +59,14 @@
                     </thead>
                     <tbody>
                     <tr th:each="tweet:${tweets}">
-                        <td th:text="${tweet.userName}">User Name</td>
+                        <td th:text="${tweet.user.name}">User Name</td>
+                        <td><a th:if="${not #strings.isEmpty(tweet.user.name)}"
+                               th:href="@{/twitter_dashboard/user_details/{userId}(userId= ${tweet.user.id})}"
+                               target="_blank"><i class="fa fa-external-link" aria-hidden="true"></i></a></td>
                         <td th:text="${tweet.tweet}">Tweet</td>
-                        <td th:text="${tweet.userLocation}">Location</td>
-                        <td><a th:if="${not #strings.isEmpty(tweet.userUrl)}" th:href="${tweet.userUrl}" target="_blank"><i class="fa fa-external-link" aria-hidden="true"></i></a></td>
+                        <td th:text="${tweet.user.location}">Location</td>
+                        <td><a th:if="${not #strings.isEmpty(tweet.user.url)}" th:href="${tweet.user.url}"
+                               target="_blank"><i class="fa fa-external-link" aria-hidden="true"></i></a></td>
                     </tr>
                     </tbody>
                 </table>
