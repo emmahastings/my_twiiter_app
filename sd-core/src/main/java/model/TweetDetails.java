@@ -10,21 +10,7 @@ public class TweetDetails {
 
     private String tweet;
 
-    private String userName;
-
-    private String userLocation;
-
-    private String userUrl;
-
-    public TweetDetails() {
-    }
-
-    public TweetDetails(String tweet, String userName, String userLocation, String userUrl) {
-        this.tweet = tweet;
-        this.userName = userName;
-        this.userLocation = userLocation;
-        this.userUrl = userUrl;
-    }
+    private UserDetails user;
 
     public String getTweet() {
         return tweet;
@@ -34,27 +20,11 @@ public class TweetDetails {
         this.tweet = tweet;
     }
 
-    public String getUserName() {
-        return userName;
+    public UserDetails getUser() {
+        return user;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getUserLocation() {
-        return userLocation;
-    }
-
-    public void setUserLocation(String userLocation) {
-        this.userLocation = userLocation;
-    }
-
-    public String getUserUrl() {
-        return userUrl;
-    }
-
-    public void setUserUrl(String userUrl) {
-        this.userUrl = userUrl;
+    public void setUser(UserDetails user) {
+        this.user = user;
     }
 }
