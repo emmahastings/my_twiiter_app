@@ -33,9 +33,7 @@ public class TwitterFollowersService {
         CursoredList<Long> followerIds = twitter.friendOperations().getFollowerIds();
         List<TwitterFollower> twitterFollowers = new ArrayList<>();
 
-        for (Long id : followerIds) {
-
-            // Get follower profile
+        followerIds.forEach(id -> {// Get follower profile
             TwitterProfile followerProfile = twitter.userOperations().getUserProfile(id);
 
             // Create new follower to return to view
@@ -47,8 +45,7 @@ public class TwitterFollowersService {
             twitterFollower.setScreenName(followerProfile.getScreenName());
 
             twitterFollowers.add(twitterFollower);
-
-        }
+        });
         return twitterFollowers;
     }
 }
