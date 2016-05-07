@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"
@@ -15,18 +15,29 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
 
-    <title>Social Dashboard</title>
+    <link rel="stylesheet" href="../static/css/color_scheme.css"
+          th:href="@{../../../../css/color_scheme.css}"/>
+
+    <title>Twitter Dashboard</title>
 </head>
 <body>
+
+<div class="container">
+    <div class="row lead">
+        <div class="col-md-6 col-md-offset-3 col-sm-10">
+            <h3>Welcome to your Twitter Dashboard</h3>
+        </div>
+    </div>
+</div>
 
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3 col-sm-10">
 
             <div class="list-group">
-                <p>You are now connected to twitter, click <a href="/twitter_dashboard">here</a> to see your Twitter
-                    dashboard
-                </p>
+                <p>You are now connected to twitter</p>
+                <a class="list-group-item" href="/twitter_dashboard" th:href="@{/twitter_dashboard}"><i
+                        class="fa fa-tachometer fa-3x"></i>&nbsp; View dashboard</a>
             </div>
 
         </div>
