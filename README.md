@@ -1,5 +1,5 @@
-# Social Dashboard
-Application to access various social media platfomrs.
+# Twitter Dashboard
+Application to access Twitter using Spring Social.
 
 ### Authors and Contributors
 Emma Hastings (@emmahastings)
