@@ -33,21 +33,37 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(MockitoJUnitRunner.class)
 public class TwitterDashboardControllerTest {
 
-    private static final UserDetails USER = new TwitterUserDetailsBuilder().setLanguage("en").setUrl("https://test").setLocation("Dublin").setId(123L).build();
-    private static final TweetDetails TEST_TWEET_1 = new TweetDetailsBuilder().setTweet("test").setUser(USER).build();
-    private static final TweetDetails TEST_TWEET_2 = new TweetDetailsBuilder().setTweet("test again").setUser(USER).build();
+    private static final UserDetails USER = new TwitterUserDetailsBuilder()
+            .setLanguage("en")
+            .setUrl("https://test")
+            .setLocation("Dublin")
+            .setId(123L).build();
+
+    private static final TweetDetails TEST_TWEET_1 = new TweetDetailsBuilder()
+            .setTweet("test")
+            .setUser(USER).build();
+
+    private static final TweetDetails TEST_TWEET_2 = new TweetDetailsBuilder()
+            .setTweet("test again")
+            .setUser(USER).build();
+
     private static final TwitterFollower FOLLOWER = new TwitterFollowerBuilder()
             .setDescription("follower")
             .setLocation("spain")
             .setScreenName("follower_01")
             .setName("J Smith")
             .setProfileUrl("https://test").build();
+
     private MockMvc mockMvc;
+
     private TwitterDashboardController twitterDashboardController;
+
     @Mock
     private AccountDetailsService accountDetailsService;
+
     @Mock
     private TwitterSearchService twitterSearchService;
+
     @Mock
     private TwitterFollowersService twitterFollowersService;
 
@@ -79,7 +95,8 @@ public class TwitterDashboardControllerTest {
                 .andExpect(view().name("twitter/twitter_dashboard"))
                 .andExpect(model().attribute("searchForm", instanceOf(SearchForm.class)))
                 .andExpect(model().attribute("searchForm", hasProperty("query", is("test query"))))
-                .andExpect(model().attribute("tweets", hasSize(2)));
+                .andExpect(model().attribute("tweets", hasSize(2)))
+                .andExpect(model().attribute("tweets", hasItems(TEST_TWEET_1, TEST_TWEET_2)));
 
         verify(twitterSearchService, times(1)).search("test query");
         verifyZeroInteractions(accountDetailsService);
