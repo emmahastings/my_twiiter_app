@@ -4,7 +4,6 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.hastings</groupId>
     <artifactId>sd-interface</artifactId>
     <version>0.1.0</version>
 
@@ -16,6 +15,10 @@
     </parent>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -40,11 +43,6 @@
             <version>2.2.1</version>
         </dependency>
         <dependency>
-            <groupId>com.hastings</groupId>
-            <artifactId>sd-core</artifactId>
-            <version>0.1.0</version>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
@@ -59,7 +57,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <start-class>com.hastings.com.hastings.dashboard.Application</start-class>
+        <start-class>com.hastings.dashboard.Application</start-class>
         <java.version>1.8</java.version>
     </properties>
 </project>

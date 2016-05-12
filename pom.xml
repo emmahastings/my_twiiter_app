@@ -27,7 +27,6 @@
 
     <modules>
         <module>sd-interface</module>
-        <module>sd-core</module>
     </modules>
 
     <build>
