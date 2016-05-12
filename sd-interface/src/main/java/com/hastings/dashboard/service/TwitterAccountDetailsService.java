@@ -1,7 +1,7 @@
 package com.hastings.dashboard.service;
 
-import com.hastings.model.TwitterUserDetails;
-import com.hastings.model.UserDetails;
+import com.hastings.dashboard.model.TwitterUserDetails;
+import com.hastings.dashboard.model.UserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.twitter.api.AccountSettings;
 import org.springframework.social.twitter.api.Twitter;

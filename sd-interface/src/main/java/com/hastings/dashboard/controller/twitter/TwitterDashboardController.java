@@ -1,9 +1,9 @@
 package com.hastings.dashboard.controller.twitter;
 
+import com.hastings.dashboard.model.SearchForm;
 import com.hastings.dashboard.service.AccountDetailsService;
 import com.hastings.dashboard.service.TwitterFollowersService;
 import com.hastings.dashboard.service.TwitterSearchService;
-import com.hastings.model.SearchForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;

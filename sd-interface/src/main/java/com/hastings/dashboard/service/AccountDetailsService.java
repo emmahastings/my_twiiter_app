@@ -1,6 +1,6 @@
 package com.hastings.dashboard.service;
 
-import com.hastings.model.UserDetails;
+import com.hastings.dashboard.model.UserDetails;
 
 /**
  * Created by emmakhastings on 02/04/2016.

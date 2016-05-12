@@ -1,9 +1,9 @@
 package com.hastings.dashboard.controller.twitter;
 
+import com.hastings.dashboard.model.*;
 import com.hastings.dashboard.service.AccountDetailsService;
 import com.hastings.dashboard.service.TwitterFollowersService;
 import com.hastings.dashboard.service.TwitterSearchService;
-import com.hastings.model.*;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

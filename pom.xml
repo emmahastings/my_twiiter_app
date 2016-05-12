@@ -2,11 +2,11 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
 
+    <modelVersion>4.0.0</modelVersion>
     <groupId>com.hastings</groupId>
     <artifactId>social-dashboard</artifactId>
-    <version>0.1.0</version>
+    <version>${project.version}</version>
     <description>Application to access various social media platfomrs. Based on
         https://spring.io/guides/gs/accessing-twitter/
     </description>
@@ -14,6 +14,7 @@
     <packaging>pom</packaging>
 
     <properties>
+        <project.version>0.1.0</project.version>
         <docker.image.prefix>hastings</docker.image.prefix>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>

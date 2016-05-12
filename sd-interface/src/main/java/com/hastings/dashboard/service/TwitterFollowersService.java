@@ -1,6 +1,6 @@
 package com.hastings.dashboard.service;
 
-import com.hastings.model.TwitterFollower;
+import com.hastings.dashboard.model.TwitterFollower;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.twitter.api.CursoredList;
 import org.springframework.social.twitter.api.Twitter;

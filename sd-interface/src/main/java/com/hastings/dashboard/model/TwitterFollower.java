@@ -1,4 +1,4 @@
-package com.hastings.model;
+package com.hastings.dashboard.model;
 
 /**
  * Created by emmakhastings on 17/04/2016.
