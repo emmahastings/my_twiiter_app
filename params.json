@@ -1,1 +1,7 @@
-{"name":"My twitter app","tagline":"Application that fetches data from twitter based on certain search criteria","body":"# my_twitter_app\r\nApplication that fetches data from twitter based on certain search criteria\r\n\r\n### Authors and Contributors\r\nEmma Hastings (@emmahastings)\r\n\r\n### Credits & acknowledgements\r\nCreated with the help of [Spring guides](https://spring.io/guides/gs/accessing-twitter/)\r\nBuilt with [Bootstrap](http://getbootstrap.com/)\r\nEnhanced with [Font Awesome](http://fontawesome.io) by Dave Gandy","google":"","note":"Don't delete this file! It's used internally to help with page regeneration."}
+{
+  "name": "Twitter Dashboard",
+  "tagline": "Application to access Twitter using Spring Social.",
+  "body": "# Twitter Dashboard\r\nApplication to access Twitter using Spring Social.\r\n\r\n### Authors and Contributors\r\nEmma Hastings (@emmahastings)\r\n\r\n### Credits and acknowledgements\r\n* Created with the help of [Spring guides](https://spring.io/guides/gs/accessing-twitter/)\r\n* Built with [Bootstrap](http://getbootstrap.com/)\r\n* Enhanced with [Font Awesome](http://fontawesome.io) by Dave Gandy\r\n* Colour scheme with [PaintStrap](http://paintstrap.com/)",
+  "google": "",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
