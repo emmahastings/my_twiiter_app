@@ -4,7 +4,7 @@ Application to access Twitter using Spring Social.
 ### Docker
 
 A docker file and docker-compose.yml are provided. 
-The path to you application.properties file should be included in the docker-compose.yml file.
+The path to your application.properties file should be included in the docker-compose.yml file.
 
 Example:
 
