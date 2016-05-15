@@ -1,0 +1,8 @@
+# The compose file is used to set path to application.properties file
+# which is required as the twitter user id and secret are required for the app
+sd-interface:
+    net: "host"
+    image: hastings/sd-interface
+    volumes:
+       - /path/to/application.properties:/application.properties
+    entrypoint: ["java","-jar","/app.jar","--spring.config.location=/application.properties"]
