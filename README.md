@@ -11,7 +11,7 @@ Example:
 
 mvn clean package docker:build
 
-docker-compose -f /path/to/docker-compose.yml up
+docker-compose -f /path/to/docker-compose.yml up -d
 
 ### Authors and Contributors
 Emma Hastings (@emmahastings)
