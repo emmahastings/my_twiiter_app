@@ -34,6 +34,19 @@
 <p>Application to access Twitter using Spring Social.</p>
 
 <h3>
+<a id="docker" class="anchor" href="#docker" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Docker</h3>
+
+<p>A docker file and docker-compose.yml are provided. </p>
+
+<p>The path to your application.properties file should be included in the docker-compose.yml file.</p>
+
+<p>Example:</p>
+
+<p>mvn clean package docker:build</p>
+
+<p>docker-compose -f /path/to/docker-compose.yml up -d</p>
+
+<h3>
 <a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
 
 <p>Emma Hastings (<a href="https://github.com/emmahastings" class="user-mention">@emmahastings</a>)</p>
@@ -42,7 +55,7 @@
 <a id="credits-and-acknowledgements" class="anchor" href="#credits-and-acknowledgements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Credits and acknowledgements</h3>
 
 <ul>
-<li>Created with the help of <a href="https://spring.io/guides/gs/accessing-twitter/">Spring guides</a>
+<li>Created with the help of <a href="https://spring.io/guides">Spring guides</a>
 </li>
 <li>Built with <a href="http://getbootstrap.com/">Bootstrap</a>
 </li>

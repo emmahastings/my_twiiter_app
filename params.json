@@ -1,7 +1,7 @@
 {
   "name": "Twitter Dashboard",
   "tagline": "Application to access Twitter using Spring Social.",
-  "body": "# Twitter Dashboard\r\nApplication to access Twitter using Spring Social.\r\n\r\n### Authors and Contributors\r\nEmma Hastings (@emmahastings)\r\n\r\n### Credits and acknowledgements\r\n* Created with the help of [Spring guides](https://spring.io/guides/gs/accessing-twitter/)\r\n* Built with [Bootstrap](http://getbootstrap.com/)\r\n* Enhanced with [Font Awesome](http://fontawesome.io) by Dave Gandy\r\n* Colour scheme with [PaintStrap](http://paintstrap.com/)",
+  "body": "# Twitter Dashboard\r\nApplication to access Twitter using Spring Social.\r\n\r\n### Docker\r\n\r\nA docker file and docker-compose.yml are provided. \r\n\r\nThe path to your application.properties file should be included in the docker-compose.yml file.\r\n\r\nExample:\r\n\r\nmvn clean package docker:build\r\n\r\ndocker-compose -f /path/to/docker-compose.yml up -d\r\n\r\n### Authors and Contributors\r\nEmma Hastings (@emmahastings)\r\n\r\n### Credits and acknowledgements\r\n* Created with the help of [Spring guides](https://spring.io/guides)\r\n* Built with [Bootstrap](http://getbootstrap.com/)\r\n* Enhanced with [Font Awesome](http://fontawesome.io) by Dave Gandy\r\n* Colour scheme with [PaintStrap](http://paintstrap.com/)\r\n",
   "google": "",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }
